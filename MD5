@@ -1,5 +1,5 @@
-a63a021b6868b114e2d6af72400ac37f *DESCRIPTION
-9b19601a09f040819bd44ef578d98051 *NAMESPACE
+bd1aa2c627dd656715f80d58d219decc *DESCRIPTION
+a2128dc5734d0d59f745e2c63c2c1d5d *NAMESPACE
 77629ea8939dccad1846c3fb8f4ee944 *R/aveslope.r
 8fa90a724e873018c3e7dd05c9b90945 *R/bisoreg.R
 fac407d816b4c08ee3ca6fa3349667f1 *R/fits.isoreg.R
@@ -11,8 +11,7 @@ ba1337f4ae64f30153dd6d4672b08a0e *R/fitted.biso.R
 680be3b4b42060e254a2fa5b92f1146f *R/pflat.R
 c3dcba8bd39d0baeab7bed84154d3c60 *R/pflat.biso.R
 f80b67fccf049b9f1f3a672c82790363 *R/plot.biso.R
-1398eba937df59de926c17d6aa15ec73 *R/zzz.R
-da28ff86fb00badeb4549578336ef73f *data/childgrowth.txt
+108ff261f775569b3d016a5aa6df85af *data/childgrowth.txt.gz
 57fe1292b8f6dc5f6b910d6a4f73a80c *inst/bugs/nd2004.bug
 5cfff4a3e77e40cb9b800b7ac1151efa *man/as.mcmc.biso.Rd
 3ab9b7fcafff1f918d2610cc61ddb36e *man/aveslope.Rd
