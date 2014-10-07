@@ -1,6 +1,6 @@
 nd2004 <- function(x, y, M, n.sim=5000, n.thin=1, n.burn=1000){
     n <- length(y)
-    gamma <- seq(0,1,l=M+1)
+    gamma <- seq(min(x),max(x),l=M+1)
     W <-
         t(sapply(x,
                  function(r)
