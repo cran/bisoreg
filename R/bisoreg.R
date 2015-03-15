@@ -109,7 +109,7 @@
   }
 
 
-as.mcmc.biso <- function(x){
+as.mcmc.biso <- function(x, ...){
   as.mcmc(x$postdraws)
   }
 

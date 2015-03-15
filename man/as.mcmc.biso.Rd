@@ -10,41 +10,24 @@
 }
 
 \usage{
-\method{as.mcmc}{biso}(x)
+\method{as.mcmc}{biso}(x, \dots)
 }
 
 \arguments{
-  \item{x}{
-    a \code{biso} object.
-  }
-}
-
-\details{
-  None.
+  \item{x}{ a \code{biso} object. }
+  \item{\dots}{ unused }
 }
 
 \value{
   An S3 object with class \code{mcmc}.
 }
 
-\references{
-  None.
-}
-
 \author{
   S. McKay Curtis
 }
 
-\note{
-  None.
-}
-
 \seealso{
   \pkg{coda} package.
-}
-
-\examples{
-## None ##
 }
 
 \keyword{ methods }

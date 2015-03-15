@@ -6,11 +6,12 @@
 
 \description{
   Computes MCMC simulations from the poseterior distribution of the
-  monotonic Bernstein polynomial regression function.
+  monotonic Bernstein polynomial regression function
 }
 
 \usage{
-bisoreg(x, y, m = floor(n/2), priors = list(), inits = list(), n.sim = 5000, n.burn = 1000, n.thin = 10, seed)
+bisoreg(x, y, m = floor(n/2), priors = list(), inits = list(),
+        n.sim = 5000, n.burn = 1000, n.thin = 10, seed)
 }
 
 \arguments{
@@ -66,9 +67,12 @@ bisoreg(x, y, m = floor(n/2), priors = list(), inits = list(), n.sim = 5000, n.b
 data(childgrowth)
 
 ## Run three different chains ##
-out1 <- bisoreg(childgrowth$day, childgrowth$height, m=80, n.sim=15000, n.thin=10)
-out2 <- bisoreg(childgrowth$day, childgrowth$height, m=80, n.sim=15000, n.thin=10)
-out3 <- bisoreg(childgrowth$day, childgrowth$height, m=80, n.sim=15000, n.thin=10)
+out1 <- bisoreg(childgrowth$day, childgrowth$height,
+                m=80, n.sim=15000, n.thin=10)
+out2 <- bisoreg(childgrowth$day, childgrowth$height,
+                m=80, n.sim=15000, n.thin=10)
+out3 <- bisoreg(childgrowth$day, childgrowth$height,
+                m=80, n.sim=15000, n.thin=10)
 
 ## Convert to MCMC object ##
 out <- list()
@@ -96,20 +100,25 @@ mout = monreg.wrapper(childgrowth$day, childgrowth$height)
 lines(childgrowth$day, mout$est, lwd=2, col="blue")
 
 ## Compute local polynomial regression fit ##
-lines(childgrowth$day, predict(loess.wrapper(childgrowth$day, childgrowth$height)), lwd=2, col="green")
+lines(childgrowth$day,
+      predict(loess.wrapper(childgrowth$day, childgrowth$height)),
+      lwd=2, col="green")
 
 ## Add a legend ##
-gplots:::smartlegend("left", "top",
-  legend=c("bayes", "isoreg", "monreg", "loess"),
-  col=c("black", "red", "blue", "green"), lwd=2)
+legend("topleft",
+       legend=c("bayes", "isoreg", "monreg", "loess"),
+       col=c("black", "red", "blue", "green"), lwd=2)
 
 ## Check sensitivity to the prior on p ##
 ## p ~ Beta(a=1,b=1) ##
-outa1b1 <- bisoreg(childgrowth$day, childgrowth$height, 40, priors=list(a.p=1,b.p=1), n.sim=15000, n.thin=10)
+outa1b1 <- bisoreg(childgrowth$day, childgrowth$height,
+                   40, priors=list(a.p=1,b.p=1), n.sim=15000, n.thin=10)
 ## p ~ Beta(a=1,b=3) ##
-outa1b3 <- bisoreg(childgrowth$day, childgrowth$height, 40, priors=list(a.p=1,b.p=3), n.sim=15000, n.thin=10)
+outa1b3 <- bisoreg(childgrowth$day, childgrowth$height,
+                   40, priors=list(a.p=1,b.p=3), n.sim=15000, n.thin=10)
 ## p ~ Beta(a=3,b=1) ##
-outa3b1 <- bisoreg(childgrowth$day, childgrowth$height, 40, priors=list(a.p=3, b.p=1), n.sim=15000, n.thin=10)
+outa3b1 <- bisoreg(childgrowth$day, childgrowth$height,
+                   40, priors=list(a.p=3, b.p=1), n.sim=15000, n.thin=10)
 
 ## Create plot to compare model fits ##
 plot(outa1b1,cl=F,color="black")
@@ -141,7 +150,9 @@ gplots:::smartlegend("left", "top",
 
 ## Piece-wise linear 'true' regression function ##
 mu <- function(x){
-  ifelse(-3<=x & x<=-1, x, 0) + ifelse(-1<x & x<1, -1, 0) + ifelse(1<=x & x<3, x - 2, 0)
+  ifelse(-3<=x & x<=-1, x, 0) +
+      ifelse(-1<x & x<1, -1, 0) +
+          ifelse(1<=x & x<3, x - 2, 0)
 }
 par(mfrow=c(2,2))
 curve(mu, -2.9, 2.9)
